@@ -26,7 +26,7 @@ export default function Compendium() {
         setLoading(false);
       }
       getPokemon();
-    }, [pokemons]);
+    }, []);
   }
 
   //TODO 😖 help!
@@ -53,6 +53,7 @@ export default function Compendium() {
       }
       setLoading(false);
       // setSort('');
+      setSelectedType(selectedType);
     }
 
     getFilteredPokemon();
