@@ -18,7 +18,7 @@ export default function Compendium() {
   const [selectedType, setSelectedType] = useState('all');
 
   // TODO 😖 help! --DONE
-  if (pokemons.count !== 0) {
+  if (pokemons.count === 0) {
     useEffect(() => {
       async function getPokemon() {
         const pokemonList = await fetchPokemon();
@@ -52,7 +52,6 @@ export default function Compendium() {
         setPokemons(pokemonList);
       }
       setLoading(false);
-      // setSort('');
       setSelectedType(selectedType);
     }
 
@@ -64,7 +63,7 @@ export default function Compendium() {
     setLoading(true);
     fetchSearchPokemon(searchName)
       .then((searchedPokemons) => {
-        this.setState({ pokemons: searchedPokemons });
+        setPokemons(searchedPokemons);
       })
       .catch((error) => {})
       .finally(() => {
@@ -90,7 +89,7 @@ export default function Compendium() {
           selectedType={selectedType}
         />
         {loading ? (
-          <code>Search for the bugs in the code!</code>
+          <code>Loading...</code>
         ) : (
           <PokemonList pokemons={pokemons} />
         )}
