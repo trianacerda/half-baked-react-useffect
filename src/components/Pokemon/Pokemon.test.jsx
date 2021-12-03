@@ -1,5 +1,5 @@
-import { screen, render } from '@testing-library/react'
-import Pokemon from './Pokemon'
+import { screen, render } from '@testing-library/react';
+import Pokemon from './Pokemon';
 
 it('Should render a pokemon', () => {
   render(
@@ -15,8 +15,8 @@ it('Should render a pokemon', () => {
         generation: 'First Generation',
       }}
     />
-  )
+  );
 
-  const pokemon = screen.getByText(/Charizard/)
-  expect(pokemon).toMatchSnapshot()
-})
+  const pokemon = screen.getByText(/Charizard/i);
+  expect(pokemon).toMatchSnapshot();
+});
