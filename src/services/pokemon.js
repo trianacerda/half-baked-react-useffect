@@ -36,9 +36,9 @@ export const fetchPokemon = async () => {
   return pokemonList;
 };
 
-export const fetchSearchPokemon = (pokemonName) => {
+export const fetchSearchPokemon = async (pokemonName) => {
   const lowerCaseName = pokemonName.toLowerCase();
-  return fetch(
+  return await fetch(
     `https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${lowerCaseName}`
   )
     .then((data) => data.json())
